@@ -2,6 +2,7 @@ const booksGrid = document.querySelector(".books-grid");
 const book = document.querySelector(".blueprint").cloneNode(true);
 book.classList.remove("blueprint");
 book.classList.add("book");
+const formModal = document.querySelector(".form-modal");
 const addBtn = document.querySelector(".addButton");
 
 const myLibrary = [];
@@ -33,7 +34,7 @@ function displayBooks() {
 }
 
 addBtn.addEventListener("click", () => {
-    alert("New Book");
+    formModal.showModal();
 })
 
 
