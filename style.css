@@ -88,3 +88,10 @@ form input[type="text"]:focus {
     flex-direction: row;
     gap: 10px;
 }
+
+.form-modal {
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
