@@ -25,7 +25,8 @@ function displayBooks() {
         book.querySelector(".title").textContent = b.title;
         book.querySelector(".author").textContent = b.author;
         book.querySelector(".page").textContent = b.pages;
-        // book.querySelector(".status").src = "read.png";
+        book.querySelector(".status").src = b.hasRead ? 
+                                    "./icons/finished.png": "./icons/reading.png";
         booksGrid.appendChild(book);
     });
 }
