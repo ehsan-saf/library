@@ -95,3 +95,22 @@ form input[type="text"]:focus {
     top: 50%;
     transform: translateY(-50%);
 }
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.close-button {
+    background: none;
+    background-image: url(./icons/close.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    align-self: flex-end;
+    cursor: pointer;
+}

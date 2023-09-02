@@ -4,7 +4,7 @@ book.classList.remove("blueprint");
 book.classList.add("book");
 const formModal = document.querySelector(".form-modal");
 const addBtn = document.querySelector(".addButton");
-
+const closeBtn = document.querySelector(".close-button");
 const myLibrary = [];
 
 function Book(title, author, pages, hasRead) {
@@ -37,7 +37,9 @@ addBtn.addEventListener("click", () => {
     formModal.showModal();
 })
 
-
+closeBtn.addEventListener("click", () => {
+    formModal.close();
+});
 
 
 
