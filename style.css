@@ -41,3 +41,15 @@ main {
     border-bottom: 1px solid rgb(194, 121, 121);
     padding-bottom: 5px;
 }
+
+.addButton {
+    border: none;
+    background: none;
+    background-image: url("./icons/add.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    width: 64px;
+    height: 64px;
+    align-self: center;
+    justify-self: center;
+}
