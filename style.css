@@ -65,14 +65,14 @@ main {
     border-radius: 10px;
 }
 
-form input[type="text"] {
+form input:not([type="checkbox"]) {
     border: 2px solid gainsboro;
     border-radius: 5px;
     padding: 5px;
     transition: border 0.25s;
 }
 
-form input[type="text"]:focus {
+form input:not([type="checkbox"]):focus {
     outline: none;
     border-radius: 5px;
     border: 2px solid gray;
