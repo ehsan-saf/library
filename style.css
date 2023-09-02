@@ -100,6 +100,7 @@ form input:not([type="checkbox"]):focus {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    padding-bottom: 35px;
 }
 
 .close-button {
@@ -113,4 +114,21 @@ form input:not([type="checkbox"]):focus {
     height: 28px;
     align-self: flex-end;
     cursor: pointer;
+}
+
+.save-button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    width: 110px;
+    margin: 10px auto;
+    font-size: 1rem;
+    background-color: rgb(240, 240, 240);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.save-button:hover {
+    background-color: green;
+    color: white;
 }
