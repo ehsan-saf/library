@@ -3,6 +3,7 @@ const book = document.querySelector(".blueprint").cloneNode(true);
 book.classList.remove("blueprint");
 book.classList.add("book");
 const formModal = document.querySelector(".form-modal");
+const bookForm = document.querySelector(".book-info");
 const addBtn = document.querySelector(".addButton");
 const closeBtn = document.querySelector(".close-button");
 const myLibrary = [];
@@ -39,6 +40,10 @@ addBtn.addEventListener("click", () => {
 
 closeBtn.addEventListener("click", () => {
     formModal.close();
+});
+
+bookForm.addEventListener("submit", () => {
+    
 });
 
 
