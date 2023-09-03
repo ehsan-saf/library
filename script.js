@@ -1,7 +1,5 @@
 const booksGrid = document.querySelector(".books-grid");
-const book = document.querySelector(".blueprint").cloneNode(true);
-book.classList.remove("blueprint");
-book.classList.add("book");
+const book = document.querySelector(".book").cloneNode(true);
 const formModal = document.querySelector(".form-modal");
 const bookForm = document.querySelector(".book-info");
 const addBtn = document.querySelector(".addButton");
@@ -15,12 +13,18 @@ function Book(title, author, pages, hasRead) {
     this.hasRead = hasRead;
 }
 
-function addBookToLibrary(newBook) {
-    myLibrary.push(newBook);
+function addBookToLibrary() {
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const page = document.getElementById("page").value;
+    const hasRead = document.getElementById("status").value;
+    const userBook = new Book(title, author, page, hasRead);
+    myLibrary.push(userBook);
 }
 
 const book1 = new Book("book1", "author1", 25, true);
-addBookToLibrary(book1);
+const book2 = new Book("book2", "author2", 50, false);
+myLibrary.push(book2);
 displayBooks();
 
 function displayBooks() {
@@ -30,7 +34,7 @@ function displayBooks() {
         book.querySelector(".page").textContent = b.pages;
         book.querySelector(".status").src = b.hasRead ? 
                                     "./icons/finished.png": "./icons/reading.png";
-        booksGrid.appendChild(book);
+        booksGrid.appendChild();
     });
 }
 
@@ -42,8 +46,10 @@ closeBtn.addEventListener("click", () => {
     formModal.close();
 });
 
-bookForm.addEventListener("submit", () => {
-    
+bookForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    addBookToLibrary();
+    displayBooks();
 });
 
 

@@ -27,8 +27,12 @@ main {
     font-size: 1.2rem;
 }
 
-.blueprint {
+.book {
     display: none;
+}
+
+.books-grid .book {
+    display: unset;
 }
 
 .row {
