@@ -34,7 +34,6 @@ function displayBooks() {
                                     "./icons/finished.png": "./icons/reading.png";
         booksGrid.appendChild(book);
     });
-    booksGrid.appendChild(addBtn);
 }
 
 addBtn.addEventListener("click", () => {
