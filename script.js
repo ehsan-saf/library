@@ -53,5 +53,9 @@ bookForm.addEventListener("submit", (e) => {
 });
 
 
+const book1 = new Book("book1", "author1", 300, false);
+myLibrary.push(book1);
+displayBooks();
+
 
 
