@@ -26,7 +26,6 @@ function addBookToLibrary() {
 
 function displayBooks() {
     booksGrid.innerHTML = '';
-
     myLibrary.forEach(b => {
         const book = bookTemplate.cloneNode(true);
         book.querySelector(".title").textContent = b.title;
@@ -36,6 +35,7 @@ function displayBooks() {
                                     "./icons/finished.png": "./icons/reading.png";
         booksGrid.appendChild(book);
     });
+    booksGrid.appendChild(addBtn);
 }
 
 addBtn.addEventListener("click", () => {
@@ -50,7 +50,8 @@ bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
     addBookToLibrary();
     displayBooks();
-    // formModal.close();
+    bookForm.reset();
+    formModal.close();
 });
 
 
