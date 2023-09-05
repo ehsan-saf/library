@@ -1,12 +1,15 @@
 const booksGrid = document.querySelector(".books-grid");
-const bookTemplate = document.querySelector(".book");
+const bookTemplate = document.getElementById("book-temp");
 const formModal = document.querySelector(".form-modal");
 const bookForm = document.querySelector(".book-info");
 const addBtn = document.querySelector(".addButton");
 const closeBtn = document.querySelector(".close-button");
+const deleteBtn = document.querySelector("delete-button");
 const myLibrary = [];
 
-function Book(title, author, pages, hasRead) {
+bookTemplate.className = "book";
+
+function Book(title, author, pages, hasRead, index) {
     this.title = title,
     this.author = author,
     this.pages = pages,
@@ -26,7 +29,8 @@ function addBookToLibrary() {
 function displayBooks() {
     booksGrid.innerHTML = '';
     myLibrary.forEach(b => {
-        const book = bookTemplate.cloneNode(true);
+        
+        const book = bookTemplate.content.cloneNode(true);
         book.querySelector(".title").textContent = b.title;
         book.querySelector(".author").textContent = b.author;
         book.querySelector(".page").textContent = b.pages;
@@ -53,9 +57,9 @@ bookForm.addEventListener("submit", (e) => {
 });
 
 
-const book1 = new Book("book1", "author1", 300, false);
-myLibrary.push(book1);
-displayBooks();
+// const book1 = new Book("book1", "author1", 300, false);
+// myLibrary.push(book1);
+// displayBooks();
 
 
 

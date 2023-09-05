@@ -11,27 +11,29 @@
 </head>
 
 <body>
-    <div class="book">
-        <div class="row">
-            <button class="delete-button"></button>
+    <template id="book-temp">
+        <div class="book" data-index="">
+            <div class="row">
+                <button class="delete-button"></button>
+            </div>
+            <div class="row">
+                <p>Title : </p>
+                <p class="title">once in a village</p>
+            </div>
+            <div class="row">
+                <p>Author : </p>
+                <p class="author">mike</p>
+            </div>
+            <div class="row">
+                <p>Number of pages : </p>
+                <p class="page">150</p>
+            </div>
+            <div class="row">
+                <p>Read status</p>
+                <img src="" alt="" class="status">
+            </div>
         </div>
-        <div class="row">
-            <p>Title : </p>
-            <p class="title">once in a village</p>
-        </div>
-        <div class="row">
-            <p>Author : </p>
-            <p class="author">mike</p>
-        </div>
-        <div class="row">
-            <p>Number of pages : </p>
-            <p class="page">150</p>
-        </div>
-        <div class="row">
-            <p>Read status</p>
-            <img src="" alt="" class="status">
-        </div>
-    </div>
+    </template>
     <header>
         <h1>library</h1>
     </header>
