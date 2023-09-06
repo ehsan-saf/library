@@ -26,18 +26,6 @@ function addBookToLibrary() {
 
 function displayBooks() {
     booksGrid.innerHTML = '';
-    // myLibrary.forEach(b => {
-    //     const book = bookTemplate.content.cloneNode(true);
-    //     book.querySelector(".title").textContent = b.title;
-    //     book.querySelector(".author").textContent = b.author;
-    //     book.querySelector(".page").textContent = b.pages;
-    //     book.querySelector(".status").src = b.hasRead ? 
-    //                                 "./icons/finished.png": "./icons/reading.png";
-    //     book.querySelector(".delete-button")
-    //     .addEventListener("click", deleteBook);
-    //     booksGrid.appendChild(book);
-    // });
-
     for (let i = 0; i < myLibrary.length; i++) {
         const b = myLibrary[i];
         const book = bookTemplate.content.cloneNode(true);
@@ -48,6 +36,7 @@ function displayBooks() {
         "./icons/finished.png": "./icons/reading.png";
         book.querySelector(".delete-button")
         .addEventListener("click", deleteBook);
+        book.querySelector(".toggleStatus").addEventListener("click", toggleStatus);
         booksGrid.appendChild(book);
         booksGrid.lastElementChild.dataset.index = i;
     }
@@ -73,6 +62,19 @@ function deleteBook(e) {
    const index = e.target.parentNode.parentNode.dataset.index;
    myLibrary.splice(index, 1);
    displayBooks();
+}
+
+function toggleStatus(e) {
+    const index = e.target.parentNode.parentNode.dataset.index;
+    if(myLibrary[index].hasRead) {
+        myLibrary[index].hasRead = false;
+    }
+    else {
+        myLibrary[index].hasRead = true;
+    }
+    e.target.parentNode.querySelector(".status").src = 
+    myLibrary[index].hasRead ? 
+        "./icons/finished.png": "./icons/reading.png";
 }
 
 const book1 = new Book("book1", "author1", 300, false);
