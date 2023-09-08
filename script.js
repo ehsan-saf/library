@@ -6,6 +6,8 @@ const addBtn = document.querySelector(".addButton");
 const closeBtn = document.querySelector(".close-button");
 const myLibrary = [];
 
+let selectedIndex = 0;
+
 function Book(title, author, pages, hasRead, index) {
     this.title = title,
     this.author = author,
@@ -36,6 +38,8 @@ function displayBooks() {
         "./icons/finished.png": "./icons/reading.png";
         book.querySelector(".delete-button")
         .addEventListener("click", deleteBook);
+        book.querySelector(".edit-button").
+        addEventListener("click", editForm);
         book.querySelector(".toggleStatus").addEventListener("click", toggleStatus);
         booksGrid.appendChild(book);
         booksGrid.lastElementChild.dataset.index = i;
@@ -43,6 +47,7 @@ function displayBooks() {
 }
 
 addBtn.addEventListener("click", () => {
+    bookForm.onsubmit = addSubmit;
     formModal.showModal();
 })
 
@@ -50,22 +55,15 @@ closeBtn.addEventListener("click", () => {
     formModal.close();
 });
 
-bookForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addBookToLibrary();
-    displayBooks();
-    bookForm.reset();
-    formModal.close();
-});
 
 function deleteBook(e) {
-   const index = e.target.parentNode.parentNode.dataset.index;
+   const index = getBookIndex(e);
    myLibrary.splice(index, 1);
    displayBooks();
 }
 
 function toggleStatus(e) {
-    const index = e.target.parentNode.parentNode.dataset.index;
+    const index = getBookIndex(e);
     if(myLibrary[index].hasRead) {
         myLibrary[index].hasRead = false;
     }
@@ -75,6 +73,52 @@ function toggleStatus(e) {
     e.target.parentNode.querySelector(".status").src = 
     myLibrary[index].hasRead ? 
         "./icons/finished.png": "./icons/reading.png";
+}
+
+function addSubmit(e) {
+    e.preventDefault();
+    addBookToLibrary();
+    displayBooks();
+    bookForm.reset();
+    formModal.close();
+}
+
+function changeSubmit(e) {
+    e.preventDefault();
+    saveChanges();
+    displayBooks();
+    bookForm.reset();
+    formModal.close();
+}
+
+// Fill in the inputs with the selected book's information
+
+function editForm(e) {
+    bookForm.onsubmit = changeSubmit;
+    const index = getBookIndex(e);
+    const book = myLibrary[index];
+    selectedIndex = index;
+    formModal.showModal();
+    document.getElementById("title").value = book.title;
+    document.getElementById("author").value = book.author;
+    document.getElementById("page").value = book.pages;
+    document.getElementById("status").checked = true ? book.hasRead : false;
+}
+
+function saveChanges() {
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const page = document.getElementById("page").value;
+    const hasRead = document.getElementById("status").checked ? true 
+    : false;
+    myLibrary[selectedIndex].title = title;
+    myLibrary[selectedIndex].author = author;
+    myLibrary[selectedIndex].pages = page;
+    myLibrary[selectedIndex].hasRead = hasRead;
+}
+
+function getBookIndex(book) {
+    return book.target.parentNode.parentNode.dataset.index;
 }
 
 const book1 = new Book("book1", "author1", 300, false);
