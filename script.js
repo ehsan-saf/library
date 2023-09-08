@@ -53,6 +53,7 @@ addBtn.addEventListener("click", () => {
 
 closeBtn.addEventListener("click", () => {
     formModal.close();
+    bookForm.reset();
 });
 
 
