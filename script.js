@@ -59,8 +59,10 @@ closeBtn.addEventListener("click", () => {
 
 function deleteBook(e) {
    const index = getBookIndex(e);
+   if(confirm(`Confirm to delete the book " ${myLibrary[index].title} "`)){
    myLibrary.splice(index, 1);
    displayBooks();
+   }
 }
 
 function toggleStatus(e) {
